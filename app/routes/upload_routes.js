@@ -60,7 +60,7 @@ router.get('/uploads/:id', requireToken, (req, res, next) => {
 
 // CREATE
 // POST /uploads
-router.post('/uploads', requireToken, (req, res, next) => {
+router.post('/uploads', (req, res, next) => {
   // set owner of new upload to be current user
   // req.body.upload.owner = req.user.id
 
@@ -68,12 +68,10 @@ router.post('/uploads', requireToken, (req, res, next) => {
     .then(data => {
       return Upload.create({
         fileName: data.key,
-        fileType: '',
+        fileType: 'NA',
         fileUrl: data.Location
       })
     })
-
-  Upload.create(req.body.upload)
     // respond to succesful `create` with status 201 and JSON of new "upload"
     .then(upload => {
       res.status(201).json({ upload: upload.toObject() })

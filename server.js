@@ -6,7 +6,7 @@ const cors = require('cors')
 // require route files
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
-const uploadRoutes = require('./app/routes/uploads')
+const uploadRoutes = require('./app/routes/upload_routes')
 // require middleware
 const errorHandler = require('./lib/error_handler')
 const replaceToken = require('./lib/replace_token')
